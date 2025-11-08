@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="logic.js"></script>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="main-panel">
+        <div class="panel-1">
+          <form id="form">
+            <b><header>Sign in</header></b>
+            <section id="butn">
+                <button id="facebook" onclick="window.open('https://www.facebook.com/login/')"><i class="bi bi-facebook"></i></button>
+                <button id="mail" onclick="window.open('https://mail.google.com/')"><i class="bi bi-envelope"></i></button>
+                <button id="linkedin" onclick="window.open('https://in.linkedin.com/')"><i class="bi bi-linkedin"></i></button>
+            </section>
+            <h6>or use your account</h6>
+            <input type="text" placeholder="Email" id="mail">
+            <small id="error-1"></small>
+            <input type="password" placeholder="Password"   id="password">
+            <small id="error-2"></small>
+            <button type="button" id="sign-in" onclick="check()">Sign in</button>
+            <button id="new-account">i don't have account</button>
+          </form>
+        </div>
+    </div>
+</body>
+</html>

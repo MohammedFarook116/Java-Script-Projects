@@ -1,0 +1,110 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.158);
+
+   
+}
+.main-panel{
+    width: 400px;
+    height: 500px;
+    display: flex;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0,.16),
+               -8px -8px 10px rgba(0, 0, 0,.16);
+    border-radius: 10px;
+    background-color: rgba(248, 43, 16, 0.815);
+    overflow: hidden;
+    
+
+}
+.panel-1 form{
+    width: 400px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border-left: 20px;
+    padding: 10px;
+    overflow: hidden;
+  
+}
+.panel-1 header{
+        font-size: 40px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-bottom: 15px;
+        margin-top: 20px;
+        color: white;
+}
+
+#butn button{
+    display: inline-block;
+    font-size: 30px;
+    padding: 10px;
+    border: transparent;
+    background: transparent;
+    cursor: pointer;
+}
+.panel-1 h6{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.panel-1 input{
+    width: 250px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    border: transparent;
+    box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.199),
+                inset 12px 12px 8px rgba(255, 252, 252, 0.863);
+    padding-left: 15px;
+    font-size: larger;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border-color: rgba(248, 43, 16, 0.815);
+    cursor: pointer;
+}
+
+.errormsg{
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+    color: red;
+    visibility: visible;
+    justify-content: start;
+}
+
+
+#sign-in{
+    width: 100px;
+    height: 40px;
+    font-size: medium ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10;
+    border-radius: 10px;
+    border:transparent;
+    font-weight: bolder;
+    box-shadow: 12px 12px 8px rgba(0, 0, 0,.16);
+    background-color:rgba(248, 43, 16, 0.815) ;
+    cursor: pointer;
+}
+
+#new-account{
+    width: 200px;
+    font-size: medium;
+    border: transparent;
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: none;
+        color:rgba(243, 233, 232, 0.966) ;
+}
+
+
