@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Music Player</title>
+</head>
+<body>
+        <div class="music">
+            <h3>Music Player</h3>
+            <img  class="image">
+            <p class="music-name"></p>
+            <p class="artist" ></p>
+            <input type="range" id="slider" value="0" m="100" onclick="change_duration()">
+            <div class="buttons">
+            <button id="backword" onclick="previous_song()"><i class="fa-solid fa-backward-step"></i></button>
+            <button id="play" onclick="justplay()"><i></i></button>
+            <button id="forword" onclick="next_song()"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+        </div>
+</body>
+
+    <script>
+
+        let previous = document.getElementById("backword");
+        let play = document.getElementById("play");
+        let next = document.getElementById("forword");
+        let musicName = document.querySelector(".music-name");
+        let artistName = document.querySelector(".artist");
+        let slider = document.getElementById("slider");
+        let track_image = document.querySelector(".image");
+
+        let index_value = 0;
+        let play_song = false;
+        let timer;
+
+        let track = document.createElement("audio");
+
+        let all_song = [{
+            name : "mellineme",
+            path : "Melliname-Shajahan.mp3",
+            image : 'download.jpg',
+            artist : "mani sharma",
+        },
+        {
+            name : "Arabic Kuthu",
+            path : "Arabic Kuthu(KoshalWorld.Com).mp3",
+            image : "images.jpg",
+            artist : "Aniruth"
+        },
+        {
+            name : "Minnale",
+            path : "Hey Minnale (Tamil)(KoshalWorld.Com).mp3",
+            image : "size_m.jpg",
+            artist : "G.V.Prakash"
+        }];
+       
+         
+        function load_track(index_value){
+            reset_slider();
+            track.src = all_song[index_value].path;
+            musicName.innerHTML = all_song[index_value].name;
+            track_image.src = all_song[index_value].image;
+            artistName.innerHTML = all_song[index_value].artist;
+
+            play.classList = "fa-solid fa-play";
+
+        };
+
+        load_track(index_value);
+
+        function reset_slider(){
+            slider.value = 0;
+        };
+
+        function justplay(){
+            if(play_song == false){
+                playsong();
+
+            }
+            else{
+                pausesong();
+            }
+        };
+
+        function playsong(){
+            track.play();
+            play_song = true;
+            play.className = "fa-solid fa-pause"; 
+             clearInterval(slider.value);
+            setInterval(()=>{
+                slider.value = track.currentTime;
+            },500);
+         
+        };
+
+        function pausesong(){
+            track.pause();
+            play_song = false;
+            play.className = "fa-solid fa-play";
+        };
+
+        function range(){
+            slider.max = track.duration;
+            slider.value = track.currentTime;
+        }
+            
+
+        function next_song(){
+                if(index_value < all_song.length){
+                    index_value += 1;
+                    load_track(index_value);
+                    playsong();
+                }
+                else{
+                    index_value = 0;
+                    load_track(index_value);
+                    playsong();
+                }
+        }
+
+        function previous_song(){
+            if(index_value > 0){
+                index_value -= 1;
+                load_track(index_value);
+                playsong();
+            }
+        }
+
+        function change_duration(){
+            timer = track.duration * (slider.value /100);
+            track.currentTime = timer;
+            slider.max = track.duration;
+            clearInterval(slider.value);
+            setInterval(()=>{
+                slider.value = track.currentTime;
+            },500)
+        }
+        
+      
+     
+    </script>
+   
+</html>
